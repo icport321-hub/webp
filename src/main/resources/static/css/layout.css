@@ -1,0 +1,27 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+header {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+}
+
+nav {
+    display: flex;
+    gap: 1.5rem;
+}
+
+main {
+    padding: 3rem 0;
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 2rem 0;
+    color: var(--sub);
+    font-size: 0.9rem;
+    text-align: center;
+}

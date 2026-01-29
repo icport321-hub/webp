@@ -1,0 +1,30 @@
+.button {
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background-color: var(--primary);
+    color: white;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.button:hover {
+    opacity: 0.9;
+}
+
+.card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.card + .card {
+    margin-top: 1.5rem;
+}
+
+.badge {
+    font-size: 0.75rem;
+    color: var(--primary);
+}
