@@ -23,5 +23,13 @@ open class User(
 
     @CreationTimestamp
     @Column(updatable = false)
-    open var createdAt: LocalDateTime = LocalDateTime.now()
+    open var createdAt: LocalDateTime = LocalDateTime.now(),
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    open var role: Role = Role.USER
 )
+
+enum class Role {
+    ADMIN, USER
+}

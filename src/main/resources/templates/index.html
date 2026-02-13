@@ -9,11 +9,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>🎉 Spring Boot + HTML 성공!</h1>
+        <header>
+            <h1>🎉 방문을 환영합니다!</h1>
+        </header>
         <div class="card">
-            <h2>프로젝트 제목</h2>
+            <h2>가인철의 포트폴리오</h2>
             <p class="badge">Spring Boot</p>
-            <button class="button">데모 보기</button>
+            <button class="button" onclick="location.href='/auth/login'">로그인</button>
         </div>
         <p th:text="${message}"></p>
     </div>

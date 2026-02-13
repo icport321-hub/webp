@@ -12,7 +12,7 @@ class HomeController{
 
     @GetMapping("/")
     fun home(model: Model):String{
-        model.addAttribute("message", "타임리프에서 온 메시지")
+        // model.addAttribute("message", "타임리프에서 온 메시지")
         return "index"
     }
 }
