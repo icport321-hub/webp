@@ -9,16 +9,6 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🎉 방문을 환영합니다!</h1>
-        </header>
-        <div class="card">
-            <h2>가인철의 포트폴리오</h2>
-            <p class="badge">Spring Boot</p>
-            <button th:if="${isLoggedIn}" class="button" onclick="location.href='/auth/logout'">로그아웃</button>
-            <button th:if="${isLoggedIn}" class="button" onclick="location.href='/posts/new'">게시글 작성</button>
-            <button th:unless="${isLoggedIn}" class="button" onclick="location.href='/auth/login'">로그인</button>
-        </div>
         <nav>
             <ul class="nav-list">
                 <li><a href="/about">소개</a></li>
@@ -27,7 +17,6 @@
                 <li><a href="/projects">프로젝트</a></li>
             </ul>
         </nav>
-        <p th:text="${message}"></p>
     </div>
 </body>
 </html>
