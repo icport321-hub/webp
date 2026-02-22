@@ -32,11 +32,11 @@ public class AuthController (
             "redirect:/";
         } catch (e: LoginException.UserNotFound) {
             // not exist email
-            model.addAttribute("error", "Invalid credentials\nnot found email");
+            model.addAttribute("error", "not found email\r\nInvalid credentials");
             "auth/login";
         } catch (e: LoginException.PasswordMismatch) {
             // wrong password
-            model.addAttribute("error", "Invalid credentials\nwrong password");
+            model.addAttribute("error", "wrong password\r\nInvalid credentials");
             "auth/login";
         }
     }

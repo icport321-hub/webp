@@ -15,6 +15,7 @@ class LoginService (
     fun login(email: String, password: String): User {
         val user = userRepository.findByEmail(email) ?: throw LoginException.UserNotFound
         if (!passwordEncoder.passwordEncoder().matches(password, user.password)) {
+            println("Password mismatch for user: $email and provided password: ${user.password}")
             throw LoginException.PasswordMismatch
         }
         return user

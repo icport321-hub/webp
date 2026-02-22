@@ -12,9 +12,11 @@ import org.junit.jupiter.api.assertThrows
 import jakarta.transaction.Transactional
 import org.springframework.security.crypto.password.PasswordEncoder
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.test.context.ActiveProfiles
 
 @SpringBootTest
 @Transactional
+@ActiveProfiles("test")
 class AuthServiceTest @Autowired constructor(
     private val userRepository: UserRepository,
     private val passwordEncoder: PasswordEncoder,
