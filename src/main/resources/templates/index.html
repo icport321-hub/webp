@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>My Portfolio</title>
@@ -15,9 +15,11 @@
         <div class="card">
             <h2>가인철의 포트폴리오</h2>
             <p class="badge">Spring Boot</p>
-            <button th:if="${isLoggedIn}" class="button" onclick="location.href='/auth/logout'">로그아웃</button>
-            <button th:if="${isLoggedIn}" class="button" onclick="location.href='/posts/new'">게시글 작성</button>
-            <button th:unless="${isLoggedIn}" class="button" onclick="location.href='/auth/login'">로그인</button>
+            <form sec:authorize="isAuthenticated()" th:action="@{/auth/logout}" method="post">
+                <button class="button" type="submit">로그아웃</button>
+            </form>
+            <button sec:authorize="isAuthenticated()" class="button" onclick="location.href='/posts/new'">게시글 작성</button>
+            <button sec:authorize="isAnonymous()" class="button" onclick="location.href='/auth/login'">로그인</button>
         </div>
         <nav>
             <ul class="nav-list">

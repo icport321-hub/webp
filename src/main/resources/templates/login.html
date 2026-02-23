@@ -11,11 +11,14 @@
 <body>
     <div class="container">
         <div class="login-card">
+            <div>
+                <p th:if="${error} == null" th:text="${error}">nn</p>
+            </div>
             <h2>로그인</h2>
             <form th:action="@{/auth/login}" method="post">
                 <div class="form-group">
-                    <label for="email">사용자 이름:</label>
-                    <input type="text" id="email" name="email" required>
+                    <label for="username">사용자 이름:</label>
+                    <input type="text" id="username" name="username" required>
                 </div>
                 <div class="form-group">
                     <label for="password">비밀번호:</label>
