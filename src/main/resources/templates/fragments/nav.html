@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<nav th:fragment="nav">
+    <ul class="nav-list">
+        <li><a th:href="@{/about}" th:classappend="${#httpServletRequest.requestURI == '/about'} ? 'active'">소개</a></li>
+        <li><a th:href="@{/posts}" th:classappend="${#httpServletRequest.requestURI == '/posts'} ? 'active'">게시글 목록</a></li>
+        <li><a th:href="@{/projects}" th:classappend="${#httpServletRequest.requestURI == '/projects'} ? 'active'">프로젝트</a></li>
+    </ul>
+</nav>
+
+</body>
+</html>
