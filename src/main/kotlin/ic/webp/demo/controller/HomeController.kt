@@ -21,11 +21,19 @@ class HomeController{
     
     @GetMapping("/about")
     fun about(model: Model, request: HttpServletRequest):String{
+        model.addAttribute("currentPath", request.getRequestURI());
         return "about"
+    }
+
+    @GetMapping("/posts")
+    fun posts(model: Model, request: HttpServletRequest):String{
+        model.addAttribute("currentPath", request.getRequestURI());
+        return "posts"
     }
     
     @GetMapping("/projects")
     fun projects(model: Model, request: HttpServletRequest):String{
+        model.addAttribute("currentPath", request.getRequestURI());
         return "projects"
     }
 
