@@ -21,7 +21,7 @@
             <button sec:authorize="isAuthenticated()" class="button" onclick="location.href='/posts/new'">게시글 작성</button>
             <button sec:authorize="isAnonymous()" class="button" onclick="location.href='/auth/login'">로그인</button>
         </div>
-        <div th:replace="fragments/nav :: nav"></div>
+        <div th:replace="~{fragments/nav :: nav}"></div>
 
         <p th:text="${message}"></p>
     </div>
