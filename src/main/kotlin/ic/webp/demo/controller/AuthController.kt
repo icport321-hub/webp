@@ -23,6 +23,24 @@ public class AuthController (
         return "login";
     }
 
+    // @PostMapping("/login")
+    // fun loginSubmit(@RequestParam email: String, @RequestParam password: String, model: Model, request: HttpServletRequest): String {
+    //     return try {
+    //         val user = loginService.login(email, password)
+    //         // successful login
+    //         request.session.setAttribute("USER_ID", user.id)
+    //         "redirect:/";
+    //     } catch (e: LoginException.UserNotFound) {
+    //         // not exist email
+    //         model.addAttribute("error", "not found email\r\nInvalid credentials");
+    //         "auth/login";
+    //     } catch (e: LoginException.PasswordMismatch) {
+    //         // wrong password
+    //         model.addAttribute("error", "wrong password\r\nInvalid credentials");
+    //         "auth/login";
+    //     }
+    // }
+
     @PostMapping("/logout")
     fun logout(request: HttpServletRequest): String {
         request.session.invalidate()
