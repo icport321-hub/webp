@@ -12,6 +12,6 @@
         <div th:replace="fragments/nav :: nav"></div>
         <h1 th:text="${post.title}">게시글 제목</h1>
         <p th:text="${post.content}">게시글 내용</p>
-        <a th:href="@{/posts}" class="btn btn-secondary">목록으로 돌아가기</a>
+        <a th:href="@{/posts/list}" class="btn btn-secondary">목록으로 돌아가기</a>
     </div>
 </html>

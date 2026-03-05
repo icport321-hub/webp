@@ -18,6 +18,12 @@ public class PostController (
     private val userService: UserService,
     private val postService: PostService
 ) {
+    @GetMapping("/list")
+    fun list(model: Model): String {
+        val posts = postService.getAll()
+        model.addAttribute("posts", posts)
+        return "post/list";
+    }
     
     @GetMapping("/new")
     fun newPostForm(model: Model): String {
@@ -26,14 +32,18 @@ public class PostController (
 
     @PostMapping("/new")
     fun createPost(request: HttpServletRequest): String {
-        
-        return "redirect:/posts"
+        postService.create(
+            authorId = request.session.getAttribute("USER_ID") as Long,
+            title = request.getParameter("title"),
+            content = request.getParameter("content")
+        )
+        return "redirect:/posts/list"
     }
 
     @GetMapping("/{id}")
     fun detail(@PathVariable id: Long, model: Model): String {
-    val post = postService.get(id)
-    model.addAttribute("post", post)
-    return "post/detail"
-}
+        val post = postService.get(id)
+        model.addAttribute("post", post)
+        return "post/detail"
+    }
 }
