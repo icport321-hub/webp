@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>새 게시글 작성</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/components.css">
+</head>
+<body>
+    <div class="container">
+        <div th:replace="fragments/nav :: nav"></div>
+        <h1 th:text="${post.title}">게시글 제목</h1>
+        <p th:text="${post.content}">게시글 내용</p>
+        <a th:href="@{/posts}" class="btn btn-secondary">목록으로 돌아가기</a>
+    </div>
+</html>

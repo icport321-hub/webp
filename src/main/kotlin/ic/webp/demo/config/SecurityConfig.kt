@@ -32,18 +32,10 @@ class SecurityConfig {
                         val remoteAddr = request.remoteAddr
                         val isLocal = remoteAddr == "127.0.0.1" || remoteAddr == "::1"
 
-                        // if (isLocal) {
-                        //     org.springframework.security.authorization.AuthorizationDecision(true)
-                        // } else {
-                        //     org.springframework.security.authorization.AuthorizationDecision(
-                        //         authentication.get().isAuthenticated
-                        //     )
-                        // }
                         org.springframework.security.authorization.AuthorizationDecision(true)
                     }
                     .anyRequest().authenticated()
             }
-            // .formLogin { it.permitAll() }
             .formLogin { form ->
                 form
                     .loginPage("/auth/login")
@@ -59,17 +51,6 @@ class SecurityConfig {
 
         return http.build()
     }
-
-    // @Bean
-    // fun userDetailsService(passwordEncoder: PasswordEncoder): UserDetailsService {
-    //     val user = User.builder()
-    //         .username("user")
-    //         .password(passwordEncoder.encode("password"))
-    //         .roles("USER")
-    //         .build()
-
-    //     return InMemoryUserDetailsManager(user)
-    // }
 
     @Bean
     fun passwordEncoder(): PasswordEncoder {

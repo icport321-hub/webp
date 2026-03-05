@@ -18,7 +18,7 @@ public class PostController (
     
     @GetMapping("/new")
     fun newPostForm(model: Model): String {
-        return "posts/new";
+        return "post/new";
     }
 
     @PostMapping("/new")
@@ -26,4 +26,11 @@ public class PostController (
         
         return "redirect:/posts"
     }
+
+    @GetMapping("/{id}")
+    fun detail(@PathVariable id: Long, model: Model): String {
+    val post = postService.get(id)
+    model.addAttribute("post", post)
+    return "post/detail"
+}
 }
