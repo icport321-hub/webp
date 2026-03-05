@@ -33,8 +33,7 @@ class PostService(
     
 
     fun getPage(pageable: Pageable): Page<Post> =
-        postRepository.findAllByOrderByCreatedAtDesc(pageable)
-        .orElseThrow { IllegalArgumentException("No posts found") }
+        postRepository.findAllByOrderByCreatedAtDesc(pageable)//.orElseThrow( { IllegalArgumentException("No posts found") } )
     
 
     fun delete(id: Long) =
