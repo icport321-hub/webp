@@ -5,12 +5,14 @@ import org.springframework.ui.Model
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestParam
+import org.springframework.web.bind.annotation.PathVariable
+import org.springframework.security.core.Authentication
 import ic.webp.demo.service.LoginException
 import ic.webp.demo.service.UserService
 import jakarta.servlet.http.HttpServletRequest
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.PathVariable
 import ic.webp.demo.service.PostService
+import ic.webp.demo.entity.User
 
 @Controller
 @RequestMapping("/posts")
@@ -31,9 +33,12 @@ public class PostController (
     }
 
     @PostMapping("/new")
-    fun createPost(request: HttpServletRequest): String {
+    fun createPost(request: HttpServletRequest, authentication: Authentication): String {
+        // val userId = (authentication.principal as User).id
+        val userId = userService.getByEmail(authentication.name)?.id
+
         postService.create(
-            authorId = request.session.getAttribute("USER_ID") as Long,
+            authorId = userId!!,
             title = request.getParameter("title"),
             content = request.getParameter("content")
         )
