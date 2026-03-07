@@ -26,7 +26,7 @@ class SecurityConfig {
         http
             .authorizeHttpRequests { auth ->
                 auth
-                    .requestMatchers("/", "/about", "/projects", "/posts", "/css/**", "/js/**")
+                    .requestMatchers("/", "/about", "/projects", "/posts/list", "/css/**", "/js/**")
                     .access { authentication, context ->
                         val request = context.request
                         val remoteAddr = request.remoteAddr
@@ -40,7 +40,7 @@ class SecurityConfig {
                 form
                     .loginPage("/auth/login")
                     .loginProcessingUrl("/auth/login")
-                    .defaultSuccessUrl("/", true)
+                    .defaultSuccessUrl("/")
                     .permitAll()
             }
             .logout { logout ->
